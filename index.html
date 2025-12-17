@@ -1,61 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Ron's Designs and Signs</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/png" href="/Ron-s-Designs-and-Signs/images/tranparant half.png">
+    <meta charset="UTF-8">
+    <title>Ron's Designs and Signs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/Ron-s-Designs-and-Signs/images/tranparant half.png">
 </head>
+
 <body>
-<header>
-<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-<span></span><span></span><span></span>
-</button>
-<nav id="navMenu">
-<a href="/Ron-s-Designs-and-Signs/">Home</a>
-<a href="/Ron-s-Designs-and-Signs/services">Services</a>
-<a href="/Ron-s-Designs-and-Signs/gallery">Gallery</a>
-<a href="/Ron-s-Designs-and-Signs/contact">Contact</a>
-</nav>
-<img src="/Ron-s-Designs-and-Signs/images/logo.png" alt="Logo" class="header-logo">
-</header>
-<script>
-const toggle = document.getElementById('menuToggle');
-const menu = document.getElementById('navMenu');
-toggle.addEventListener('click', () => {
-menu.classList.toggle('active');
-toggle.classList.toggle('active');
-});
-menu.querySelectorAll('a').forEach(link => {
-link.addEventListener('click', () => {
-menu.classList.remove('active');
-toggle.classList.remove('active');
-});
-});
-</script>
+    <header>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="navMenu">
+            <a href="/Ron-s-Designs-and-Signs/">Home</a>
+            <a href="/Ron-s-Designs-and-Signs/services">Services</a>
+            <a href="/Ron-s-Designs-and-Signs/gallery">Gallery</a>
+            <a href="/Ron-s-Designs-and-Signs/contact">Contact</a>
+        </nav>
+        <img src="/Ron-s-Designs-and-Signs/images/tranparant half.png" alt="Logo" class="header-logo">
+    </header>
+    <script>
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('navMenu');
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                toggle.classList.remove('active');
+            });
+        });
+    </script>
 
-<section class="hero">
-<h1>Ron's Designs and Signs</h1>
-<p>Custom signs, decals, and apparel in Cadott, Wisconsin</p>
-</section>
+    <section class="hero">
+        <h1>Ron's Designs and Signs</h1>
+        <p>Custom signs, decals, and apparel in Cadott, Wisconsin</p>
+    </section>
 
-<div class="container">
-<div class="grid">
-<div class="card">
-<h3>Custom Signs</h3>
-<p>Professional indoor and outdoor signs for businesses and events.</p>
-</div>
-<div class="card">
-<h3>Vinyl & Decals</h3>
-<p>Vehicle decals, window graphics, and custom vinyl designs.</p>
-</div>
-<div class="card">
-<h3>Custom Apparel</h3>
-<p>Personalized shirts and apparel for teams and businesses.</p>
-</div>
-</div>
-</div>
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <h3>Custom Signs</h3>
+                <p>Professional indoor and outdoor signs for businesses and events.</p>
+            </div>
+            <div class="card">
+                <h3>Vinyl & Decals</h3>
+                <p>Vehicle decals, window graphics, and custom vinyl designs.</p>
+            </div>
+            <div class="card">
+                <h3>Custom Apparel</h3>
+                <p>Personalized shirts and apparel for teams and businesses.</p>
+            </div>
+        </div>
+    </div>
 
-<footer>© Ron's Designs and Signs</footer>
+    <footer>© Ron's Designs and Signs</footer>
 </body>
+
 </html>

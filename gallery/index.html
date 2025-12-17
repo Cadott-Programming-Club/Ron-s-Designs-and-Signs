@@ -1,61 +1,65 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Gallery | Ron's Designs and Signs</title>
-<link rel="stylesheet" href="/Ron-s-Designs-and-Signs/style.css">
-<link rel="icon" type="image/png" href="/Ron-s-Designs-and-Signs/images/tranparant half.png">
+    <meta charset="UTF-8">
+    <title>Gallery | Ron's Designs and Signs</title>
+    <link rel="stylesheet" href="/Ron-s-Designs-and-Signs/style.css">
+    <link rel="icon" type="image/png" href="/Ron-s-Designs-and-Signs/images/tranparant half.png">
 </head>
+
 <body>
-<header>
-<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-<span></span><span></span><span></span>
-</button>
-<nav id="navMenu">
-<a href="/Ron-s-Designs-and-Signs/">Home</a>
-<a href="/Ron-s-Designs-and-Signs/services">Services</a>
-<a href="/Ron-s-Designs-and-Signs/gallery">Gallery</a>
-<a href="/Ron-s-Designs-and-Signs/contact">Contact</a>
-</nav>
-<img src="/Ron-s-Designs-and-Signs/images/tranparant half.png" alt="Logo" class="header-logo">
-</header>
-<script>
-const toggle = document.getElementById('menuToggle');
-const menu = document.getElementById('navMenu');
-toggle.addEventListener('click', () => {
-menu.classList.toggle('active');
-toggle.classList.toggle('active');
-});
-menu.querySelectorAll('a').forEach(link => {
-link.addEventListener('click', () => {
-menu.classList.remove('active');
-toggle.classList.remove('active');
-});
-});
-</script>
+    <header>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="navMenu">
+            <a href="/Ron-s-Designs-and-Signs/">Home</a>
+            <a href="/Ron-s-Designs-and-Signs/services">Services</a>
+            <a href="/Ron-s-Designs-and-Signs/gallery">Gallery</a>
+            <a href="/Ron-s-Designs-and-Signs/contact">Contact</a>
+        </nav>
+        <img src="/Ron-s-Designs-and-Signs/images/tranparant half.png" alt="Logo" class="header-logo">
+    </header>
+    <script>
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('navMenu');
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                toggle.classList.remove('active');
+            });
+        });
+    </script>
 
-<div class="container gallery">
-<h1>Gallery</h1>
-<div class="grid">
-<img src="/Ron-s-Designs-and-Signs/images/work/agusta_farm.png" alt="Truck decal for Agusta Farm">
-<img src="/Ron-s-Designs-and-Signs/images/work/ahern.png" alt="Truck decal for Ahern">
-<img src="/Ron-s-Designs-and-Signs/images/work/apex_excavating.png" alt="Truck decal for Apex Excavating">
-<img src="/Ron-s-Designs-and-Signs/images/work/awaken_marine.png" alt="Storefront sign for Awaken Marine">
-<img src="/Ron-s-Designs-and-Signs/images/work/cadott_cross_country.png" alt="Poster for Cadott Boys Cross Country">
-<img src="/Ron-s-Designs-and-Signs/images/work/carlson_sons.png" alt="Truck decal for Carlson & Sons">
-<img src="/Ron-s-Designs-and-Signs/images/work/casa_poblana_shirt.png" alt="Shirt design for Casa Poblana">
-<img src="/Ron-s-Designs-and-Signs/images/work/fox_den.png" alt="Lighted sign for Foxx Den">
-<img src="/Ron-s-Designs-and-Signs/images/work/jacobsons.png" alt="Storefront sign for Jacobson's">
-<img src="/Ron-s-Designs-and-Signs/images/work/jj_sons.png" alt="Post and Panel sign for JJ & Sons">
-<img src="/Ron-s-Designs-and-Signs/images/work/john_deere_fridge.png" alt="john_deere_fridge">
-<img src="/Ron-s-Designs-and-Signs/images/work/lube_suppliers.png" alt="lube_suppliers">
-<img src="/Ron-s-Designs-and-Signs/images/work/rivian.png" alt="rivian">
-<img src="/Ron-s-Designs-and-Signs/images/work/stuve.png" alt="stuve">
-<img src="/Ron-s-Designs-and-Signs/images/work/tshirt.png" alt="tshirt">
-<img src="/Ron-s-Designs-and-Signs/images/work/turenne.png" alt="turenne">
-</div>
-</div>
+    <div class="container gallery">
+        <h1>Gallery</h1>
+        <div class="grid">
+            <img src="/Ron-s-Designs-and-Signs/images/work/agusta_farm.png" alt="Truck decal for Agusta Farm">
+            <img src="/Ron-s-Designs-and-Signs/images/work/ahern.png" alt="Truck decal for Ahern">
+            <img src="/Ron-s-Designs-and-Signs/images/work/apex_excavating.png" alt="Truck decal for Apex Excavating">
+            <img src="/Ron-s-Designs-and-Signs/images/work/awaken_marine.png" alt="Storefront sign for Awaken Marine">
+            <img src="/Ron-s-Designs-and-Signs/images/work/cadott_cross_country.png"
+                alt="Poster for Cadott Boys Cross Country">
+            <img src="/Ron-s-Designs-and-Signs/images/work/carlson_sons.png" alt="Truck decal for Carlson & Sons">
+            <img src="/Ron-s-Designs-and-Signs/images/work/casa_poblana_shirt.png" alt="Shirt design for Casa Poblana">
+            <img src="/Ron-s-Designs-and-Signs/images/work/fox_den.png" alt="Lighted sign for Foxx Den">
+            <img src="/Ron-s-Designs-and-Signs/images/work/jacobsons.png" alt="Storefront sign for Jacobson's">
+            <img src="/Ron-s-Designs-and-Signs/images/work/jj_sons.png" alt="Post and Panel sign for JJ & Sons">
+            <img src="/Ron-s-Designs-and-Signs/images/work/john_deere_fridge.png" alt="john_deere_fridge">
+            <img src="/Ron-s-Designs-and-Signs/images/work/lube_suppliers.png" alt="lube_suppliers">
+            <img src="/Ron-s-Designs-and-Signs/images/work/rivian.png" alt="rivian">
+            <img src="/Ron-s-Designs-and-Signs/images/work/stuve.png" alt="stuve">
+            <img src="/Ron-s-Designs-and-Signs/images/work/tshirt.png" alt="tshirt">
+            <img src="/Ron-s-Designs-and-Signs/images/work/turenne.png" alt="turenne">
+        </div>
+    </div>
 
-<footer>© Ron's Designs and Signs</footer>
+    <footer>© Ron's Designs and Signs</footer>
 </body>
+
 </html>
