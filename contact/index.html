@@ -8,7 +8,10 @@
 </head>
 <body>
 <header>
-<nav>
+<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+<span></span><span></span><span></span>
+</button>
+<nav id="navMenu">
 <a href="/Ron-s-Designs-and-Signs/">Home</a>
 <a href="/Ron-s-Designs-and-Signs/services">Services</a>
 <a href="/Ron-s-Designs-and-Signs/gallery">Gallery</a>
@@ -16,12 +19,26 @@
 </nav>
 <img src="/Ron-s-Designs-and-Signs/images/tranparant half.png" alt="Logo" class="header-logo">
 </header>
+<script>
+const toggle = document.getElementById('menuToggle');
+const menu = document.getElementById('navMenu');
+toggle.addEventListener('click', () => {
+menu.classList.toggle('active');
+toggle.classList.toggle('active');
+});
+menu.querySelectorAll('a').forEach(link => {
+link.addEventListener('click', () => {
+menu.classList.remove('active');
+toggle.classList.remove('active');
+});
+});
+</script>
 
 <div class="container">
 <h1>Contact Us</h1>
 <p>Phone: <a href="tel:+17155798471">(715)-579-8471</a></p>
 <p>Email: <a target="_blank" href="mailto:ronsdesigns@hotmail.com">ronsdesigns@hotmail.com</a></p>
-<p>Location: <a target="_blank" href="https://www.google.com/maps/dir//Ron's%20designs%20and%20Signs">25945 Co Hwy O, Cadott, WI 54727</a></p>
+<p>Location: <a target="_blank" href="https://www.google.com/maps/dir//Ron's%20designs%20and%20Signs,%20Cadott,%20WI,%20USA">25945 Co Hwy O, Cadott, WI 54727</a></p>
 <p>Hours: Mon-Fri 8am-5pm, Sat-Sun CLOSED</p>
 </div>
 
