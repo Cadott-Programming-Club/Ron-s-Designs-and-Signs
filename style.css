@@ -1,6 +1,7 @@
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f5f5;color:#222}
-header{background:#111;color:#fff;padding:20px}
+header{background:#111;color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center}
 nav a{color:#fff;margin-right:15px;text-decoration:none;font-weight:bold}
+.header-logo{height:50px;width:auto}
 .container{max-width:1100px;margin:auto;padding:20px}
 .hero{background:#333;color:#fff;padding:80px 20px;text-align:center}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
