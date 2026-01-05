@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Contact | Ron's Designs and Signs</title>
-    <link rel="stylesheet" href="/Ron-s-Designs-and-Signs/style.css">
-    <link rel="icon" type="image/png" href="/Ron-s-Designs-and-Signs/images/tranparant half.png">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact | Ron's Designs and Signs</title>
+        <link rel="stylesheet" href="../style.css">
+        <link rel="icon" type="image/png" href="../images/tranparant half.png">
+    </head>
 
-<body>
-    <header>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
-        <nav id="navMenu">
-            <a href="/Ron-s-Designs-and-Signs/">Home</a>
-            <a href="/Ron-s-Designs-and-Signs/services">Services</a>
-            <a href="/Ron-s-Designs-and-Signs/gallery">Gallery</a>
-            <a href="/Ron-s-Designs-and-Signs/contact">Contact</a>
-        </nav>
-        <img src="/Ron-s-Designs-and-Signs/images/tranparant half.png" alt="Logo" class="header-logo">
-    </header>
-    <script>
+    <body>
+        <header>
+            <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="navMenu">
+                <a href="../">Home</a>
+                <a href="../services">Services</a>
+                <a href="../gallery">Gallery</a>
+                <a href="../contact">Contact</a>
+            </nav>
+            <img src="../images/tranparant half.png" alt="Logo"
+                class="header-logo">
+        </header>
+        <script>
         const toggle = document.getElementById('menuToggle');
         const menu = document.getElementById('navMenu');
         toggle.addEventListener('click', () => {
@@ -36,52 +38,74 @@
         });
     </script>
 
-    <div class="container">
-        <h1>Contact Us</h1>
-        <p>Phone: <a href="tel:+17155798471">(715)-579-8471</a></p>
-        <p>Email: <a target="_blank" href="mailto:ronsdesigns@hotmail.com">ronsdesigns@hotmail.com</a></p>
-        <p>Location: <a target="_blank"
-                href="https://www.google.com/maps/dir//Ron's%20designs%20and%20Signs,%20Cadott,%20WI,%20USA">25945 Co
-                Hwy O, Cadott, WI 54727</a></p>
-        <p>
-            <table>
-                <tr>
-                    <th>Day</th>
-                    <th>Avaliability</th>
-                </tr>
-                <tr>
-                    <td>Sunday</td>
-                    <td>CLOSED</td>
-                </tr>
-                <tr>
-                    <td>Monday</td>
-                    <td>8am-5pm</td>
-                </tr>
-                <tr>
-                    <td>Tuesday</td>
-                    <td>8am-5pm</td>
-                </tr>
-                <tr>
-                    <td>Wednesday</td>
-                    <td>8am-5pm</td>
-                </tr>
-                <tr>
-                    <td>Thursday</td>
-                    <td>8am-5pm</td>
-                </tr>
-                <tr>
-                    <td>Friday</td>
-                    <td>8am-5pm</td>
-                </tr>
-                <tr>
-                    <td>Saturday</td>
-                    <td>CLOSED</td>
-                </tr>
-            </table>
-        </p>
-    </div>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <div class="grid">
+                <a href="tel:+17155798471">
+                    <div class="card linked" >
+                        <h3>Call Us!</h3>
+                        <p>(715)-579-8471</p>
+                    </div>
+                </a>
+                <a target="_blank" href="mailto:ronsdesigns@hotmail.com">
+                    <div class="card linked" >
+                        <h3>Send Us An Email!</h3>
+                        <p>ronsdesigns@hotmail.com</p>
+                    </div>
+                </a>
+                <a target="_blank"
+                    href="https://www.google.com/maps/dir//Ron's%20designs%20and%20Signs,%20Cadott,%20WI,%20USA">
+                    <div class="card linked" >
+                        <h3>Come To The Shop!</h3>
+                        <p>25945 Co Hwy O, Cadott, WI
+                            54727</p>
+                    </div>
+                </a>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <h3>Business Hours</h3>
+                    <table>
+                        <tr>
+                            <th>Day</th>
+                            <th>Availability</th>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>CLOSED</td>
+                        </tr>
+                        <tr>
+                            <td>Monday</td>
+                            <td>8am-5pm</td>
+                        </tr>
+                        <tr>
+                            <td>Tuesday</td>
+                            <td>8am-5pm</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>8am-5pm</td>
+                        </tr>
+                        <tr>
+                            <td>Thursday</td>
+                            <td>8am-5pm</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>8am-5pm</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>CLOSED</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-    <footer>© Ron's Designs and Signs</footer>
-</body>
+        <footer>© Ron's Designs and Signs</footer>
+    </body>
 
 </html>
+
+<script src="../script.js"></script>
