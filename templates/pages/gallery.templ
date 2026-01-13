@@ -6,38 +6,245 @@ import (
 )
 
 type GalleryImage struct {
-	Src string
-	Alt string
+	Src      string
+	Alt      string
+	Category string
 }
 
 var galleryImages = []GalleryImage{
-	{Src: "/images/work/agusta_farm.png", Alt: "Truck decal for Agusta Farm"},
-	{Src: "/images/work/ahern.png", Alt: "Truck decal for Ahern"},
-	{Src: "/images/work/apex_excavating.png", Alt: "Truck decal for Apex Excavating"},
-	{Src: "/images/work/awaken_marine.png", Alt: "Storefront sign for Awaken Marine"},
-	{Src: "/images/work/cadott_cross_country.png", Alt: "Poster for Cadott Boys Cross Country"},
-	{Src: "/images/work/carlson_sons.png", Alt: "Truck decal for Carlson & Sons"},
-	{Src: "/images/work/casa_poblana_shirt.png", Alt: "Shirt design for Casa Poblana"},
-	{Src: "/images/work/fox_den.png", Alt: "Lighted sign for Foxx Den"},
-	{Src: "/images/work/jacobsons.png", Alt: "Storefront sign for Jacobson's"},
-	{Src: "/images/work/jj_sons.png", Alt: "Post and Panel sign for JJ & Sons"},
-	{Src: "/images/work/john_deere_fridge.png", Alt: "John Deere fridge wrap"},
-	{Src: "/images/work/lube_suppliers.png", Alt: "Lube Suppliers signage"},
-	{Src: "/images/work/rivian.png", Alt: "Rivian vehicle graphics"},
-	{Src: "/images/work/stuve.png", Alt: "Stuve signage"},
-	{Src: "/images/work/tshirt.png", Alt: "Custom t-shirt design"},
-	{Src: "/images/work/turenne.png", Alt: "Turenne signage"},
+	{Src: "/images/work/agusta_farm.webp", Alt: "Truck decal for Agusta Farm", Category: "Vehicles"},
+	{Src: "/images/work/ahern.webp", Alt: "Truck decal for Ahern", Category: "Vehicles"},
+	{Src: "/images/work/apex_excavating.webp", Alt: "Truck decal for Apex Excavating", Category: "Vehicles"},
+	{Src: "/images/work/awaken_marine.webp", Alt: "Storefront sign for Awaken Marine", Category: "Signs"},
+	{Src: "/images/work/cadott_cross_country.webp", Alt: "Poster for Cadott Boys Cross Country", Category: "Custom"},
+	{Src: "/images/work/carlson_sons.webp", Alt: "Truck decal for Carlson & Sons", Category: "Vehicles"},
+	{Src: "/images/work/casa_poblana_shirt.webp", Alt: "Shirt design for Casa Poblana", Category: "Apparel"},
+	{Src: "/images/work/fox_den.webp", Alt: "Lighted sign for Foxx Den", Category: "Signs"},
+	{Src: "/images/work/jacobsons.webp", Alt: "Storefront sign for Jacobson's", Category: "Signs"},
+	{Src: "/images/work/jj_sons.webp", Alt: "Post and Panel sign for JJ & Sons", Category: "Signs"},
+	{Src: "/images/work/john_deere_fridge.webp", Alt: "John Deere fridge wrap", Category: "Custom"},
+	{Src: "/images/work/lube_suppliers.webp", Alt: "Lube Suppliers signage", Category: "Signs"},
+	{Src: "/images/work/rivian.webp", Alt: "Rivian vehicle graphics", Category: "Vehicles"},
+	{Src: "/images/work/stuve.webp", Alt: "Stuve signage", Category: "Signs"},
+	{Src: "/images/work/tshirt.webp", Alt: "Custom t-shirt design", Category: "Apparel"},
+	{Src: "/images/work/turenne.webp", Alt: "Turenne signage", Category: "Signs"},
 }
 
 templ Gallery() {
 	@layouts.Base(meta.New("Gallery", "View our portfolio of custom signs, vehicle graphics, and apparel designs")) {
-		<div class="container gallery">
-			<h1 class="page-title">Gallery</h1>
-			<div class="grid">
-				for _, img := range galleryImages {
-					<img src={ img.Src } alt={ img.Alt } loading="lazy"/>
-				}
+		<div class="gallery-page">
+			<!-- Gallery Header -->
+			<div class="gallery-header">
+				<h1 class="gallery-title">
+					<span class="gradient-text-cinematic">OUR</span>
+					<span class="gradient-text-energy">WORK</span>
+				</h1>
+				<div class="gallery-filters">
+					<button class="filter-btn active" data-filter="all">All</button>
+					<button class="filter-btn" data-filter="Signs">Signs</button>
+					<button class="filter-btn" data-filter="Vehicles">Vehicles</button>
+					<button class="filter-btn" data-filter="Apparel">Apparel</button>
+					<button class="filter-btn" data-filter="Custom">Custom</button>
+				</div>
+			</div>
+			<!-- Masonry Gallery Grid -->
+			<div class="gallery-container">
+				<div class="gallery-masonry" id="galleryMasonry">
+					for idx, img := range galleryImages {
+						<div class="gallery-item" data-category={ img.Category } data-index={ string(rune(idx)) }>
+							<img
+								src={ img.Src }
+								alt={ img.Alt }
+								loading="lazy"
+								class="gallery-item-image"
+							/>
+							<div class="gallery-item-overlay">
+								<span class="gallery-item-category">{ img.Category }</span>
+							</div>
+						</div>
+					}
+				</div>
+			</div>
+			<!-- Lightbox Modal -->
+			<div class="lightbox" id="lightbox">
+				<button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+					<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+						<line x1="18" y1="6" x2="6" y2="18"></line>
+						<line x1="6" y1="6" x2="18" y2="18"></line>
+					</svg>
+				</button>
+				<button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+					<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+						<path d="M15 18l-6-6 6-6"></path>
+					</svg>
+				</button>
+				<button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">
+					<svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+						<path d="M9 18l6-6-6-6"></path>
+					</svg>
+				</button>
+				<div class="lightbox-content">
+					<img src="" alt="" id="lightboxImage" class="lightbox-image"/>
+					<div class="lightbox-info">
+						<p id="lightboxCaption" class="lightbox-caption"></p>
+						<span id="lightboxCounter" class="lightbox-counter"></span>
+					</div>
+				</div>
 			</div>
 		</div>
+		@galleryScripts()
 	}
+}
+
+templ galleryScripts() {
+	<script>
+		// Gallery filter
+		const filterBtns = document.querySelectorAll('.filter-btn');
+		const galleryItems = document.querySelectorAll('.gallery-item');
+
+		filterBtns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				const filter = btn.dataset.filter;
+
+				filterBtns.forEach(b => b.classList.remove('active'));
+				btn.classList.add('active');
+
+				galleryItems.forEach(item => {
+					if (filter === 'all' || item.dataset.category === filter) {
+						item.style.display = 'block';
+						setTimeout(() => {
+							item.style.opacity = '1';
+							item.style.transform = 'scale(1)';
+						}, 10);
+					} else {
+						item.style.opacity = '0';
+						item.style.transform = 'scale(0.8)';
+						setTimeout(() => {
+							item.style.display = 'none';
+						}, 300);
+					}
+				});
+			});
+		});
+
+		// Lightbox functionality
+		const lightbox = document.getElementById('lightbox');
+		const lightboxImage = document.getElementById('lightboxImage');
+		const lightboxCaption = document.getElementById('lightboxCaption');
+		const lightboxCounter = document.getElementById('lightboxCounter');
+		const lightboxClose = document.getElementById('lightboxClose');
+		const lightboxPrev = document.getElementById('lightboxPrev');
+		const lightboxNext = document.getElementById('lightboxNext');
+
+		let currentIndex = 0;
+		const images = Array.from(galleryItems).map(item => ({
+			src: item.querySelector('img').src,
+			alt: item.querySelector('img').alt,
+			category: item.dataset.category
+		}));
+
+		function openLightbox(index) {
+			currentIndex = index;
+			updateLightbox();
+			lightbox.classList.add('active');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeLightbox() {
+			lightbox.classList.remove('active');
+			document.body.style.overflow = '';
+		}
+
+		function updateLightbox() {
+			const image = images[currentIndex];
+			lightboxImage.src = image.src;
+			lightboxImage.alt = image.alt;
+			lightboxCaption.textContent = image.alt;
+			lightboxCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+		}
+
+		function nextImage() {
+			currentIndex = (currentIndex + 1) % images.length;
+			updateLightbox();
+		}
+
+		function prevImage() {
+			currentIndex = (currentIndex - 1 + images.length) % images.length;
+			updateLightbox();
+		}
+
+		// Click to open
+		galleryItems.forEach((item, index) => {
+			item.addEventListener('click', () => openLightbox(index));
+		});
+
+		// Close button
+		lightboxClose.addEventListener('click', closeLightbox);
+
+		// Navigation
+		lightboxNext.addEventListener('click', nextImage);
+		lightboxPrev.addEventListener('click', prevImage);
+
+		// Click outside to close
+		lightbox.addEventListener('click', (e) => {
+			if (e.target === lightbox) closeLightbox();
+		});
+
+		// Keyboard navigation
+		document.addEventListener('keydown', (e) => {
+			if (!lightbox.classList.contains('active')) return;
+
+			switch(e.key) {
+				case 'Escape':
+					closeLightbox();
+					break;
+				case 'ArrowRight':
+					nextImage();
+					break;
+				case 'ArrowLeft':
+					prevImage();
+					break;
+			}
+		});
+
+		// Touch swipe support
+		let touchStartX = 0;
+		let touchEndX = 0;
+
+		lightbox.addEventListener('touchstart', (e) => {
+			touchStartX = e.changedTouches[0].screenX;
+		});
+
+		lightbox.addEventListener('touchend', (e) => {
+			touchEndX = e.changedTouches[0].screenX;
+			handleSwipe();
+		});
+
+		function handleSwipe() {
+			const swipeThreshold = 50;
+			if (touchEndX < touchStartX - swipeThreshold) {
+				nextImage();
+			}
+			if (touchEndX > touchStartX + swipeThreshold) {
+				prevImage();
+			}
+		}
+
+		// Lazy load with IntersectionObserver
+		const imageObserver = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const img = entry.target;
+					img.classList.add('loaded');
+					imageObserver.unobserve(img);
+				}
+			});
+		}, {
+			rootMargin: '50px'
+		});
+
+		document.querySelectorAll('.gallery-item-image').forEach(img => {
+			imageObserver.observe(img);
+		});
+	</script>
 }

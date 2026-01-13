@@ -9,28 +9,78 @@ templ Base(m meta.PageMeta) {
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			@MetaTags(m)
+			<link rel="preload" href="/static/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
 			<link rel="stylesheet" href="/static/css/output.css"/>
 			<link rel="icon" type="image/png" href="/images/tranparant half.png"/>
 		</head>
 		<body class="min-h-screen bg-gradient-to-br from-primary to-primary-dark text-text">
 			<header class="header">
-				<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+				<a href="/" aria-label="Go to homepage">
+					<img src="/images/tranparant half.png" alt="Ron's Designs and Signs Logo" class="header-logo"/>
+				</a>
+				<nav id="navMenu" class="nav-menu">
+					<div class="nav-overlay" id="navOverlay"></div>
+					<div class="nav-content">
+						<button class="nav-close" id="navClose" aria-label="Close menu">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<line x1="18" y1="6" x2="6" y2="18"></line>
+								<line x1="6" y1="6" x2="18" y2="18"></line>
+							</svg>
+						</button>
+						<a href="/" class="nav-link">Home</a>
+						<a href="/services" class="nav-link">Services</a>
+						<a href="/gallery" class="nav-link">Gallery</a>
+						<a href="/contact" class="nav-link">Contact</a>
+					</div>
+				</nav>
+				<button class="menu-toggle" id="menuToggle" aria-label="Open menu">
 					<span></span><span></span><span></span>
 				</button>
-				<nav id="navMenu">
-					<a href="/">Home</a>
-					<a href="/services">Services</a>
-					<a href="/gallery">Gallery</a>
-					<a href="/contact">Contact</a>
-				</nav>
-				<img src="/images/tranparant half.png" alt="Ron's Designs and Signs Logo" class="header-logo"/>
 			</header>
 			@mobileMenuScript()
 			<main>
 				{ children... }
 			</main>
-			<footer class="footer">
-				© { meta.SiteNameFromCtx(ctx) }
+			<footer class="footer-modern">
+				<div class="footer-container">
+					<div class="footer-column">
+						<h3 class="footer-title">Business Hours</h3>
+						<p class="footer-text">Monday - Friday</p>
+						<p class="footer-text footer-highlight">8:00 AM - 5:00 PM</p>
+						<p class="footer-text mt-2">Saturday & Sunday</p>
+						<p class="footer-text">Closed</p>
+					</div>
+					<div class="footer-column">
+						<h3 class="footer-title">Quick Links</h3>
+						<a href="/" class="footer-link">Home</a>
+						<a href="/services" class="footer-link">Services</a>
+						<a href="/gallery" class="footer-link">Gallery</a>
+						<a href="/contact" class="footer-link">Contact</a>
+					</div>
+					<div class="footer-column">
+						<h3 class="footer-title">Get In Touch</h3>
+						<a href="tel:+17155798471" class="footer-link">
+							<svg class="footer-icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+								<path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z"/>
+							</svg>
+							(715) 579-8471
+						</a>
+						<a href="mailto:ronsdesigns@hotmail.com" class="footer-link">
+							<svg class="footer-icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+								<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+							</svg>
+							ronsdesigns@hotmail.com
+						</a>
+						<div class="footer-social">
+							<p class="footer-text-sm">Follow us on social media</p>
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p class="footer-copyright">
+						© 2026 { meta.SiteNameFromCtx(ctx) }
+					</p>
+				</div>
 			</footer>
 		</body>
 	</html>
@@ -40,15 +90,34 @@ templ mobileMenuScript() {
 	<script>
 		const toggle = document.getElementById('menuToggle');
 		const menu = document.getElementById('navMenu');
-		toggle.addEventListener('click', () => {
-			menu.classList.toggle('active');
-			toggle.classList.toggle('active');
+		const overlay = document.getElementById('navOverlay');
+		const closeBtn = document.getElementById('navClose');
+
+		function openMenu() {
+			menu.classList.add('active');
+			toggle.classList.add('active');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeMenu() {
+			menu.classList.remove('active');
+			toggle.classList.remove('active');
+			document.body.style.overflow = '';
+		}
+
+		toggle.addEventListener('click', openMenu);
+		closeBtn.addEventListener('click', closeMenu);
+		overlay.addEventListener('click', closeMenu);
+
+		menu.querySelectorAll('.nav-link').forEach(link => {
+			link.addEventListener('click', closeMenu);
 		});
-		menu.querySelectorAll('a').forEach(link => {
-			link.addEventListener('click', () => {
-				menu.classList.remove('active');
-				toggle.classList.remove('active');
-			});
+
+		// Close on ESC key
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && menu.classList.contains('active')) {
+				closeMenu();
+			}
 		});
 	</script>
 }

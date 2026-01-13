@@ -4,8 +4,10 @@ go 1.24
 
 require (
 	github.com/a-h/templ v0.3.977
+	github.com/chai2010/webp v1.4.0
 	github.com/labstack/echo/v4 v4.13.3
 	github.com/lmittmann/tint v1.0.7
+	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
 	github.com/pressly/goose/v3 v3.24.1
 	modernc.org/sqlite v1.34.5
 )
