@@ -1,0 +1,62 @@
+package pages
+
+import (
+	"ronsdesigns/internal/meta"
+	"ronsdesigns/templates/layouts"
+)
+
+templ Home() {
+	@layouts.Base(meta.New("Home", "Custom signs, decals, and apparel in Cadott, Wisconsin")) {
+		<section class="hero">
+			<h1>Ron's Designs and Signs</h1>
+			<p>Custom signs, decals, and apparel in Cadott, Wisconsin</p>
+		</section>
+		<div class="container">
+			<div class="grid">
+				<div class="card">
+					<h3>Custom Signs</h3>
+					<p>Professional indoor and outdoor signs for businesses and events.</p>
+				</div>
+				<div class="card">
+					<h3>Vinyl & Decals</h3>
+					<p>Vehicle decals, window graphics, and custom vinyl designs.</p>
+				</div>
+				<div class="card">
+					<h3>Custom Apparel</h3>
+					<p>Personalized shirts and apparel for teams and businesses.</p>
+				</div>
+			</div>
+			<div class="grid">
+				<a href="/contact" class="card linked">
+					<h3 id="ctaTitle">Get In Touch!</h3>
+					<p>Click here!</p>
+				</a>
+			</div>
+		</div>
+		@ctaScript()
+	}
+}
+
+templ ctaScript() {
+	<script>
+		const titles = [
+			"Interested?",
+			"Like What You See?",
+			"Get In Touch!",
+			"Reach Out Today!",
+			"Let's Connect!",
+			"Tap to Contact!",
+			"Contact Us Now!",
+			"Get Started!",
+			"Learn More!",
+			"Find Out More!",
+			"Click to Get in Touch!",
+			"Let's Talk!",
+			"Start Today!",
+		];
+		const ctaTitle = document.getElementById('ctaTitle');
+		if (ctaTitle) {
+			ctaTitle.innerText = titles[Math.floor(Math.random() * titles.length)];
+		}
+	</script>
+}

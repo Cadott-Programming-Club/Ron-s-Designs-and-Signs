@@ -1,0 +1,39 @@
+package pages
+
+import (
+	"ronsdesigns/internal/meta"
+	"ronsdesigns/templates/layouts"
+)
+
+templ Services() {
+	@layouts.Base(meta.New("Services", "Custom signs, vinyl graphics, apparel, and logo design services in Cadott, Wisconsin")) {
+		<div class="container">
+			<h1 class="page-title">Our Services</h1>
+			<div class="grid">
+				<div class="card">
+					<h3>Custom Signs</h3>
+					<p>Banners, business signs, yard signs, and more.</p>
+				</div>
+				<div class="card">
+					<h3>Vinyl Graphics</h3>
+					<p>Decals, lettering, and branding graphics.</p>
+				</div>
+				<div class="card">
+					<h3>Custom Apparel</h3>
+					<p>Shirts, hoodies, and branded clothing.</p>
+				</div>
+				<div class="card">
+					<h3>Logo Design</h3>
+					<p>Help creating or refining your brand identity.</p>
+				</div>
+			</div>
+			<div class="grid">
+				<a href="/contact" class="card linked">
+					<h3 id="ctaTitle">Get In Touch!</h3>
+					<p>Click here!</p>
+				</a>
+			</div>
+		</div>
+		@ctaScript()
+	}
+}

@@ -1,0 +1,107 @@
+package pages
+
+import (
+	"ronsdesigns/internal/meta"
+	"ronsdesigns/templates/layouts"
+)
+
+templ Contact(status, message string) {
+	@layouts.Base(meta.New("Contact", "Get in touch with Ron's Designs and Signs in Cadott, Wisconsin")) {
+		<div class="container">
+			<h1 class="page-title">Contact Us</h1>
+			if status == "success" {
+				<div class="alert alert-success">
+					<p>{ message }</p>
+				</div>
+			}
+			if status == "error" {
+				<div class="alert alert-error">
+					<p>{ message }</p>
+				</div>
+			}
+			<div class="grid">
+				<a href="tel:+17155798471">
+					<div class="card linked">
+						<h3>Call Us!</h3>
+						<p>(715)-579-8471</p>
+					</div>
+				</a>
+				<a href="mailto:ronsdesigns@hotmail.com" target="_blank">
+					<div class="card linked">
+						<h3>Send Us An Email!</h3>
+						<p>ronsdesigns@hotmail.com</p>
+					</div>
+				</a>
+				<a href="https://www.google.com/maps/dir//Ron's%20designs%20and%20Signs,%20Cadott,%20WI,%20USA" target="_blank">
+					<div class="card linked">
+						<h3>Come To The Shop!</h3>
+						<p>25945 Co Hwy O, Cadott, WI 54727</p>
+					</div>
+				</a>
+			</div>
+			<div class="container">
+				<div class="card">
+					<h3>Business Hours</h3>
+					<table>
+						<tr>
+							<th>Day</th>
+							<th>Availability</th>
+						</tr>
+						<tr>
+							<td>Sunday</td>
+							<td>CLOSED</td>
+						</tr>
+						<tr>
+							<td>Monday</td>
+							<td>8am-5pm</td>
+						</tr>
+						<tr>
+							<td>Tuesday</td>
+							<td>8am-5pm</td>
+						</tr>
+						<tr>
+							<td>Wednesday</td>
+							<td>8am-5pm</td>
+						</tr>
+						<tr>
+							<td>Thursday</td>
+							<td>8am-5pm</td>
+						</tr>
+						<tr>
+							<td>Friday</td>
+							<td>8am-5pm</td>
+						</tr>
+						<tr>
+							<td>Saturday</td>
+							<td>CLOSED</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="container">
+				<div class="card">
+					<h3>Send Us a Message</h3>
+					<form method="POST" action="/contact" class="contact-form">
+						<div class="form-group">
+							<label for="name">Name *</label>
+							<input type="text" id="name" name="name" required/>
+						</div>
+						<div class="form-group">
+							<label for="email">Email *</label>
+							<input type="email" id="email" name="email" required/>
+						</div>
+						<div class="form-group">
+							<label for="phone">Phone</label>
+							<input type="tel" id="phone" name="phone"/>
+						</div>
+						<div class="form-group">
+							<label for="message">Message *</label>
+							<textarea id="message" name="message" rows="5" required></textarea>
+						</div>
+						<button type="submit" class="btn-submit">Send Message</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	}
+}

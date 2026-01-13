@@ -1,0 +1,43 @@
+package pages
+
+import (
+	"ronsdesigns/internal/meta"
+	"ronsdesigns/templates/layouts"
+)
+
+type GalleryImage struct {
+	Src string
+	Alt string
+}
+
+var galleryImages = []GalleryImage{
+	{Src: "/images/work/agusta_farm.png", Alt: "Truck decal for Agusta Farm"},
+	{Src: "/images/work/ahern.png", Alt: "Truck decal for Ahern"},
+	{Src: "/images/work/apex_excavating.png", Alt: "Truck decal for Apex Excavating"},
+	{Src: "/images/work/awaken_marine.png", Alt: "Storefront sign for Awaken Marine"},
+	{Src: "/images/work/cadott_cross_country.png", Alt: "Poster for Cadott Boys Cross Country"},
+	{Src: "/images/work/carlson_sons.png", Alt: "Truck decal for Carlson & Sons"},
+	{Src: "/images/work/casa_poblana_shirt.png", Alt: "Shirt design for Casa Poblana"},
+	{Src: "/images/work/fox_den.png", Alt: "Lighted sign for Foxx Den"},
+	{Src: "/images/work/jacobsons.png", Alt: "Storefront sign for Jacobson's"},
+	{Src: "/images/work/jj_sons.png", Alt: "Post and Panel sign for JJ & Sons"},
+	{Src: "/images/work/john_deere_fridge.png", Alt: "John Deere fridge wrap"},
+	{Src: "/images/work/lube_suppliers.png", Alt: "Lube Suppliers signage"},
+	{Src: "/images/work/rivian.png", Alt: "Rivian vehicle graphics"},
+	{Src: "/images/work/stuve.png", Alt: "Stuve signage"},
+	{Src: "/images/work/tshirt.png", Alt: "Custom t-shirt design"},
+	{Src: "/images/work/turenne.png", Alt: "Turenne signage"},
+}
+
+templ Gallery() {
+	@layouts.Base(meta.New("Gallery", "View our portfolio of custom signs, vehicle graphics, and apparel designs")) {
+		<div class="container gallery">
+			<h1 class="page-title">Gallery</h1>
+			<div class="grid">
+				for _, img := range galleryImages {
+					<img src={ img.Src } alt={ img.Alt } loading="lazy"/>
+				}
+			</div>
+		</div>
+	}
+}

@@ -1,0 +1,54 @@
+package layouts
+
+import "ronsdesigns/internal/meta"
+
+templ Base(m meta.PageMeta) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			@MetaTags(m)
+			<link rel="stylesheet" href="/static/css/output.css"/>
+			<link rel="icon" type="image/png" href="/images/tranparant half.png"/>
+		</head>
+		<body class="min-h-screen bg-gradient-to-br from-primary to-primary-dark text-text">
+			<header class="header">
+				<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+					<span></span><span></span><span></span>
+				</button>
+				<nav id="navMenu">
+					<a href="/">Home</a>
+					<a href="/services">Services</a>
+					<a href="/gallery">Gallery</a>
+					<a href="/contact">Contact</a>
+				</nav>
+				<img src="/images/tranparant half.png" alt="Ron's Designs and Signs Logo" class="header-logo"/>
+			</header>
+			@mobileMenuScript()
+			<main>
+				{ children... }
+			</main>
+			<footer class="footer">
+				© { meta.SiteNameFromCtx(ctx) }
+			</footer>
+		</body>
+	</html>
+}
+
+templ mobileMenuScript() {
+	<script>
+		const toggle = document.getElementById('menuToggle');
+		const menu = document.getElementById('navMenu');
+		toggle.addEventListener('click', () => {
+			menu.classList.toggle('active');
+			toggle.classList.toggle('active');
+		});
+		menu.querySelectorAll('a').forEach(link => {
+			link.addEventListener('click', () => {
+				menu.classList.remove('active');
+				toggle.classList.remove('active');
+			});
+		});
+	</script>
+}
