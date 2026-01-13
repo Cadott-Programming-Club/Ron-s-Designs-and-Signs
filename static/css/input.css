@@ -6,23 +6,31 @@
 
 /* Ron's Designs and Signs - 2026 Ultra-Modern Theme */
 :root {
-  /* Brand Colors (existing) */
+  /* Brand Colors (logo-aligned) */
   --primary: #0f172a;
   --primary-dark: #0b1929;
   --secondary: #1e293b;
-  --accent: #10b981;
-  --accent-alt: #3b82f6;
+  --accent: #00D4FF;
+  --accent-alt: #FF7B59;
   --text: #f1f5f9;
   --muted: #94a3b8;
   --card-bg: #1e293b;
   --border: rgba(255, 255, 255, 0.1);
 
-  /* 2026 Vibrant Accents */
-  --neon-teal: #06d6a0;
-  --electric-cyan: #00e5ff;
-  --vibrant-lime: #b7f770;
-  --warm-coral: #ff6b9d;
-  --sunset-orange: #ff9f1c;
+  /* Logo Color Palette */
+  --logo-cyan: #00D4FF;
+  --logo-teal: #00B8D4;
+  --logo-purple: #C77DFF;
+  --logo-magenta: #9D4EDD;
+  --logo-coral: #FF7B59;
+  --logo-orange: #FF9F1C;
+
+  /* 2026 Vibrant Accents (logo-based) */
+  --neon-teal: #00B8D4;
+  --electric-cyan: #0BD9E6;
+  --vibrant-purple: #C77DFF;
+  --warm-coral: #FF7B59;
+  --sunset-orange: #FF9F1C;
 
   /* Soft Glow Pastels */
   --pastel-mint: #c7f9e8;
@@ -30,14 +38,21 @@
   --soft-peach: #ffd5cd;
 
   /* Deep Accent Shadows */
-  --deep-teal: #064e3b;
+  --deep-teal: #006B7D;
+  --deep-purple: #4A1A6B;
+  --deep-coral: #B84428;
   --midnight-blue: #1e3a8a;
   --rich-purple: #581c87;
 
+  /* Cinematic Glow Effects */
+  --glow-cyan-soft: #0BD9E680;
+  --glow-purple-soft: #C77DFF60;
+  --glow-orange-soft: #FF9F1C70;
+
   /* Custom Shadow Effects */
-  --shadow-glow-emerald: 0 0 30px rgba(16, 185, 129, 0.3);
-  --shadow-glow-cyan: 0 0 30px rgba(0, 229, 255, 0.3);
-  --shadow-glow-lime: 0 0 30px rgba(183, 247, 112, 0.3);
+  --shadow-glow-cyan: 0 0 40px rgba(0, 212, 255, 0.35);
+  --shadow-glow-purple: 0 0 35px rgba(199, 125, 255, 0.3);
+  --shadow-glow-orange: 0 0 30px rgba(255, 159, 28, 0.25);
 }
 
 @theme inline {
@@ -52,16 +67,26 @@
   --color-card-bg: var(--card-bg);
   --color-border: var(--border);
 
+  /* Logo Colors */
+  --color-logo-cyan: var(--logo-cyan);
+  --color-logo-teal: var(--logo-teal);
+  --color-logo-purple: var(--logo-purple);
+  --color-logo-magenta: var(--logo-magenta);
+  --color-logo-coral: var(--logo-coral);
+  --color-logo-orange: var(--logo-orange);
+
   /* 2026 Vibrant Colors */
   --color-neon-teal: var(--neon-teal);
   --color-electric-cyan: var(--electric-cyan);
-  --color-vibrant-lime: var(--vibrant-lime);
+  --color-vibrant-purple: var(--vibrant-purple);
   --color-warm-coral: var(--warm-coral);
   --color-sunset-orange: var(--sunset-orange);
   --color-pastel-mint: var(--pastel-mint);
   --color-pastel-lavender: var(--pastel-lavender);
   --color-soft-peach: var(--soft-peach);
   --color-deep-teal: var(--deep-teal);
+  --color-deep-purple: var(--deep-purple);
+  --color-deep-coral: var(--deep-coral);
   --color-midnight-blue: var(--midnight-blue);
   --color-rich-purple: var(--rich-purple);
 }
@@ -172,7 +197,7 @@
 @layer components {
   /* Kinetic Typography Utilities */
   .kinetic-gradient {
-    background: linear-gradient(90deg, var(--accent), var(--electric-cyan), var(--accent-alt));
+    background: linear-gradient(90deg, var(--logo-cyan), var(--logo-purple), var(--logo-orange));
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -192,14 +217,14 @@
   }
 
   .gradient-text-cinematic {
-    background: linear-gradient(90deg, var(--accent) 0%, var(--electric-cyan) 50%, var(--accent-alt) 100%);
+    background: linear-gradient(90deg, var(--logo-cyan) 0%, var(--logo-purple) 50%, var(--logo-coral) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .gradient-text-energy {
-    background: linear-gradient(135deg, var(--neon-teal), var(--vibrant-lime));
+    background: linear-gradient(135deg, var(--logo-teal), var(--logo-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -324,7 +349,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--electric-cyan), var(--accent-alt));
+    background: linear-gradient(90deg, var(--logo-cyan), var(--logo-purple), var(--logo-coral));
     transition: width 0.3s ease;
   }
 
@@ -360,15 +385,20 @@
   .hero-asymmetric {
     background: radial-gradient(
         circle at 30% -20%,
-        rgba(16, 185, 129, 0.15),
+        rgba(0, 212, 255, 0.12),
         transparent 60%
       ),
       radial-gradient(
+        circle at 50% 50%,
+        rgba(199, 125, 255, 0.08),
+        transparent 70%
+      ),
+      radial-gradient(
         circle at 70% 80%,
-        rgba(0, 229, 255, 0.1),
+        rgba(255, 123, 89, 0.08),
         transparent 60%
       ),
-      linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
+      linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(26, 34, 53, 0.9));
     padding: 80px 24px 100px;
     position: relative;
     overflow: hidden;
@@ -476,14 +506,14 @@
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--neon-teal));
+    background: linear-gradient(135deg, var(--logo-cyan) 0%, var(--logo-purple) 50%, var(--logo-coral) 100%);
     color: white;
-    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 212, 255, 0.3);
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 8px 24px rgba(199, 125, 255, 0.4);
   }
 
   .btn-secondary {
@@ -590,7 +620,7 @@
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: linear-gradient(135deg, var(--accent), var(--neon-teal));
+    background: linear-gradient(135deg, var(--logo-cyan), var(--logo-teal));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -601,7 +631,7 @@
     font-size: 2.5rem;
     font-weight: 800;
     margin: 0 0 16px;
-    background: linear-gradient(135deg, var(--accent), var(--electric-cyan));
+    background: linear-gradient(135deg, var(--logo-cyan), var(--logo-purple), var(--logo-coral));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -649,7 +679,7 @@
     bottom: 32px;
     right: 32px;
     z-index: 900;
-    background: linear-gradient(135deg, var(--neon-teal), var(--vibrant-lime));
+    background: linear-gradient(135deg, var(--logo-coral), var(--logo-orange));
     color: white;
     border: none;
     border-radius: 50px;
@@ -660,8 +690,8 @@
     font-weight: 700;
     font-size: 1rem;
     cursor: pointer;
-    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.4),
-                0 0 0 0 rgba(16, 185, 129, 0.5);
+    box-shadow: 0 8px 32px rgba(255, 123, 89, 0.4),
+                0 0 0 0 rgba(255, 159, 28, 0.5);
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     animation: pulse-glow 2s infinite;
     min-height: 44px;
@@ -670,7 +700,7 @@
 
   .floating-cta:hover {
     transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 12px 48px rgba(16, 185, 129, 0.5);
+    box-shadow: 0 12px 48px rgba(255, 159, 28, 0.5);
   }
 
   .floating-cta-text {
@@ -780,7 +810,7 @@
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: linear-gradient(135deg, var(--accent), var(--neon-teal));
+    background: linear-gradient(135deg, var(--logo-cyan), var(--logo-teal));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -807,7 +837,7 @@
 
   /* Services Page */
   .services-banner {
-    background: linear-gradient(135deg, var(--accent), var(--electric-cyan), var(--accent-alt));
+    background: linear-gradient(135deg, var(--logo-cyan), var(--logo-purple), var(--logo-coral), var(--logo-orange));
     padding: 80px 0;
     text-align: center;
     position: relative;
@@ -894,7 +924,7 @@
     width: 80px;
     height: 80px;
     border-radius: 20px;
-    background: linear-gradient(135deg, var(--accent), var(--neon-teal));
+    background: linear-gradient(135deg, var(--logo-cyan), var(--logo-teal));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -911,7 +941,7 @@
   .service-card-title-back {
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--accent), var(--electric-cyan));
+    background: linear-gradient(135deg, var(--logo-cyan), var(--logo-purple), var(--logo-coral));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -958,7 +988,7 @@
   }
 
   .service-card-cta {
-    background: linear-gradient(135deg, var(--accent), var(--neon-teal));
+    background: linear-gradient(135deg, var(--logo-cyan) 0%, var(--logo-purple) 50%, var(--logo-coral) 100%);
     color: white;
     padding: 12px 24px;
     border-radius: 8px;
@@ -971,7 +1001,7 @@
 
   .service-card-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 8px 24px rgba(199, 125, 255, 0.4);
   }
 
   /* Timeline */
@@ -1013,14 +1043,14 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--neon-teal));
+    background: linear-gradient(135deg, var(--logo-cyan), var(--logo-teal));
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
     font-weight: 800;
-    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 212, 255, 0.3);
   }
 
   .timeline-content {
@@ -1044,7 +1074,7 @@
   .timeline-connector {
     flex: 0 0 40px;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--electric-cyan));
+    background: linear-gradient(90deg, var(--logo-cyan), var(--logo-purple));
     margin: 0 -20px;
     position: relative;
     top: -40px;
@@ -1120,7 +1150,7 @@
     font-size: 2.2rem;
     margin: 0 0 24px;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+    background: linear-gradient(135deg, var(--logo-cyan), var(--logo-purple), var(--logo-coral));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1168,7 +1198,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+    background: linear-gradient(90deg, var(--logo-cyan), var(--logo-purple), var(--logo-coral));
     border-radius: 16px 16px 0 0;
     opacity: 0;
     transition: opacity 0.3s;
@@ -1250,7 +1280,7 @@
   }
 
   .filter-btn.active {
-    background: linear-gradient(135deg, var(--accent), var(--neon-teal));
+    background: linear-gradient(135deg, var(--logo-cyan) 0%, var(--logo-purple) 50%, var(--logo-coral) 100%);
     border-color: transparent;
     color: white;
   }
@@ -1317,7 +1347,7 @@
     display: inline-block;
     padding: 8px 16px;
     border-radius: 20px;
-    background: linear-gradient(135deg, var(--accent), var(--neon-teal));
+    background: linear-gradient(135deg, var(--logo-cyan), var(--logo-teal));
     color: white;
     font-weight: 700;
     font-size: 0.875rem;
@@ -1465,7 +1495,7 @@
     font-size: 1.125rem;
     font-weight: 700;
     margin: 0 0 8px 0;
-    background: linear-gradient(135deg, var(--accent), var(--electric-cyan));
+    background: linear-gradient(135deg, var(--logo-cyan), var(--logo-purple), var(--logo-coral));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1705,15 +1735,15 @@
   }
 
   .contact-card-icon-phone {
-    background: linear-gradient(135deg, var(--accent), var(--neon-teal));
+    background: linear-gradient(135deg, var(--logo-cyan), var(--logo-teal));
   }
 
   .contact-card-icon-email {
-    background: linear-gradient(135deg, var(--electric-cyan), var(--accent-alt));
+    background: linear-gradient(135deg, var(--logo-purple), var(--logo-magenta));
   }
 
   .contact-card-icon-location {
-    background: linear-gradient(135deg, var(--vibrant-lime), var(--accent));
+    background: linear-gradient(135deg, var(--logo-coral), var(--logo-orange));
   }
 
   .contact-card-icon svg {
@@ -1811,7 +1841,7 @@
     font-weight: 800;
     text-align: center;
     margin: 0 0 40px;
-    background: linear-gradient(135deg, var(--accent), var(--electric-cyan));
+    background: linear-gradient(135deg, var(--logo-cyan), var(--logo-purple), var(--logo-coral));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1871,7 +1901,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--electric-cyan));
+    background: linear-gradient(90deg, var(--logo-cyan), var(--logo-purple), var(--logo-coral));
     transition: width 0.3s ease;
   }
 
@@ -1909,7 +1939,7 @@
 
   .btn-submit-enhanced {
     padding: 16px 32px;
-    background: linear-gradient(135deg, var(--accent), var(--neon-teal));
+    background: linear-gradient(135deg, var(--logo-cyan) 0%, var(--logo-purple) 50%, var(--logo-coral) 100%);
     color: white;
     border: none;
     border-radius: 12px;
@@ -1928,7 +1958,7 @@
 
   .btn-submit-enhanced:hover:not(.loading) {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 8px 24px rgba(199, 125, 255, 0.4);
   }
 
   .btn-submit-enhanced.loading .btn-submit-text,
@@ -2175,7 +2205,7 @@
     height: 40px;
     margin: -16px 0;
     top: 0;
-    background: linear-gradient(180deg, var(--accent), var(--electric-cyan));
+    background: linear-gradient(180deg, var(--logo-cyan), var(--logo-purple));
   }
 
   .portfolio-teaser {
