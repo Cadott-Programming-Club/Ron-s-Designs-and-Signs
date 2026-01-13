@@ -1,107 +1,220 @@
 package pages
 
 import (
+	"fmt"
 	"ronsdesigns/internal/meta"
 	"ronsdesigns/templates/layouts"
+	"time"
 )
 
 templ Contact(status, message string) {
 	@layouts.Base(meta.New("Contact", "Get in touch with Ron's Designs and Signs in Cadott, Wisconsin")) {
-		<div class="container">
-			<h1 class="page-title">Contact Us</h1>
-			if status == "success" {
-				<div class="alert alert-success">
-					<p>{ message }</p>
-				</div>
-			}
-			if status == "error" {
-				<div class="alert alert-error">
-					<p>{ message }</p>
-				</div>
-			}
-			<div class="grid">
-				<a href="tel:+17155798471">
-					<div class="card linked">
-						<h3>Call Us!</h3>
-						<p>(715)-579-8471</p>
-					</div>
-				</a>
-				<a href="mailto:ronsdesigns@hotmail.com" target="_blank">
-					<div class="card linked">
-						<h3>Send Us An Email!</h3>
-						<p>ronsdesigns@hotmail.com</p>
-					</div>
-				</a>
-				<a href="https://www.google.com/maps/dir//Ron's%20designs%20and%20Signs,%20Cadott,%20WI,%20USA" target="_blank">
-					<div class="card linked">
-						<h3>Come To The Shop!</h3>
-						<p>25945 Co Hwy O, Cadott, WI 54727</p>
-					</div>
-				</a>
+		<div class="contact-page">
+			<!-- Contact Header -->
+			<div class="contact-header">
+				<h1 class="contact-header-title gradient-text-cinematic">Get In Touch</h1>
+				<p class="contact-header-subtitle">We'd love to hear about your project</p>
 			</div>
-			<div class="container">
-				<div class="card">
-					<h3>Business Hours</h3>
-					<table>
-						<tr>
-							<th>Day</th>
-							<th>Availability</th>
-						</tr>
-						<tr>
-							<td>Sunday</td>
-							<td>CLOSED</td>
-						</tr>
-						<tr>
-							<td>Monday</td>
-							<td>8am-5pm</td>
-						</tr>
-						<tr>
-							<td>Tuesday</td>
-							<td>8am-5pm</td>
-						</tr>
-						<tr>
-							<td>Wednesday</td>
-							<td>8am-5pm</td>
-						</tr>
-						<tr>
-							<td>Thursday</td>
-							<td>8am-5pm</td>
-						</tr>
-						<tr>
-							<td>Friday</td>
-							<td>8am-5pm</td>
-						</tr>
-						<tr>
-							<td>Saturday</td>
-							<td>CLOSED</td>
-						</tr>
-					</table>
+			<!-- Two-Column Grid Layout -->
+			<div class="contact-grid">
+				<!-- Left Column: Contact Form -->
+				<div class="contact-grid-form">
+					<div class="form-container">
+						<h2 class="form-title">Send Us a Message</h2>
+						if status == "success" {
+							<div class="alert alert-success">
+								<svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink: 0;">
+									<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+								</svg>
+								<span>{ message }</span>
+							</div>
+						}
+						if status == "error" {
+							<div class="alert alert-error">
+								<svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16" style="flex-shrink: 0;">
+									<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+								</svg>
+								<span>{ message }</span>
+							</div>
+						}
+						<form method="POST" action="/contact" class="contact-form-enhanced" id="contactForm">
+							<div class="form-field">
+								<input type="text" id="name" name="name" required class="form-input" placeholder=" "/>
+								<label for="name" class="form-label">Name *</label>
+								<div class="form-underline"></div>
+							</div>
+							<div class="form-field">
+								<input type="email" id="email" name="email" required class="form-input" placeholder=" "/>
+								<label for="email" class="form-label">Email *</label>
+								<div class="form-underline"></div>
+								<span class="form-valid-icon">✓</span>
+							</div>
+							<div class="form-field">
+								<input type="tel" id="phone" name="phone" class="form-input" placeholder=" "/>
+								<label for="phone" class="form-label">Phone</label>
+								<div class="form-underline"></div>
+							</div>
+							<div class="form-field">
+								<textarea id="message" name="message" required class="form-input form-textarea" placeholder=" " rows="5"></textarea>
+								<label for="message" class="form-label">Message *</label>
+								<div class="form-underline"></div>
+								<span class="form-char-count"><span id="charCount">0</span>/250</span>
+							</div>
+							<button type="submit" class="btn-submit-enhanced" id="submitBtn">
+								<span class="btn-submit-text">Send Message</span>
+								<span class="btn-submit-loader"></span>
+								<svg class="btn-submit-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+									<path d="M5 12h14M12 5l7 7-7 7"/>
+								</svg>
+							</button>
+						</form>
+					</div>
 				</div>
-			</div>
-			<div class="container">
-				<div class="card">
-					<h3>Send Us a Message</h3>
-					<form method="POST" action="/contact" class="contact-form">
-						<div class="form-group">
-							<label for="name">Name *</label>
-							<input type="text" id="name" name="name" required/>
+				<!-- Right Column: Contact Info, Hours, Map -->
+				<div class="contact-grid-sidebar">
+					<!-- Contact Cards -->
+					<div class="contact-cards">
+					<a href="tel:+17155798471" class="contact-card">
+						<div class="contact-card-icon contact-card-icon-phone">
+							<svg width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+								<path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z"/>
+							</svg>
 						</div>
-						<div class="form-group">
-							<label for="email">Email *</label>
-							<input type="email" id="email" name="email" required/>
+						<div class="contact-card-content">
+							<h3 class="contact-card-title">Call Us</h3>
+							<p class="contact-card-text">(715) 579-8471</p>
 						</div>
-						<div class="form-group">
-							<label for="phone">Phone</label>
-							<input type="tel" id="phone" name="phone"/>
+					</a>
+					<a href="mailto:ronsdesigns@hotmail.com" class="contact-card">
+						<div class="contact-card-icon contact-card-icon-email">
+							<svg width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+								<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+							</svg>
 						</div>
-						<div class="form-group">
-							<label for="message">Message *</label>
-							<textarea id="message" name="message" rows="5" required></textarea>
+						<div class="contact-card-content">
+							<h3 class="contact-card-title">Email Us</h3>
+							<p class="contact-card-text">ronsdesigns@hotmail.com</p>
 						</div>
-						<button type="submit" class="btn-submit">Send Message</button>
-					</form>
+					</a>
+					<a href="https://www.google.com/maps/dir//25945+Co+Hwy+O+%231,+Cadott,+WI+54727" target="_blank" class="contact-card">
+						<div class="contact-card-icon contact-card-icon-location">
+							<svg width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+								<path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+							</svg>
+						</div>
+						<div class="contact-card-content">
+							<h3 class="contact-card-title">Visit Us</h3>
+							<p class="contact-card-text">25945 Co Hwy O #1, Cadott, WI 54727</p>
+						</div>
+					</a>
+					</div>
+					<!-- Business Hours -->
+					<div class="hours-section">
+						<h2 class="section-title gradient-text-energy">Business Hours</h2>
+						<div class="hours-calendar">
+							for _, day := range []string{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"} {
+								if day == "Sunday" || day == "Saturday" {
+									<div class="hours-day hours-day-closed" data-current={ fmt.Sprintf("%t", day == getCurrentDay()) }>
+										<div class="hours-day-name">{ day[:3] }</div>
+										<div class="hours-day-time">Closed</div>
+									</div>
+								} else {
+									<div class="hours-day hours-day-open" data-current={ fmt.Sprintf("%t", day == getCurrentDay()) }>
+										<div class="hours-day-name">{ day[:3] }</div>
+										<div class="hours-day-time">8AM-5PM</div>
+									</div>
+								}
+							}
+						</div>
+					</div>
+					<!-- Map -->
+					<div class="map-section">
+						<h2 class="section-title gradient-text-cinematic">Find Us</h2>
+						<div class="map-container">
+							<iframe
+								src="https://www.google.com/maps?q=25945+Co+Hwy+O+%231,+Cadott,+WI+54727&output=embed"
+								width="100%"
+								height="350"
+								style="border:0; border-radius: 16px;"
+								allowfullscreen=""
+								loading="lazy"
+								referrerpolicy="no-referrer-when-downgrade"
+								title="Ron's Designs and Signs Location"
+							></iframe>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+		@contactScripts()
 	}
+}
+
+func getCurrentDay() string {
+	return time.Now().Weekday().String()
+}
+
+templ contactScripts() {
+	<script>
+		// Form validation and enhancements
+		const form = document.getElementById('contactForm');
+		const emailInput = document.getElementById('email');
+		const messageInput = document.getElementById('message');
+		const charCount = document.getElementById('charCount');
+		const submitBtn = document.getElementById('submitBtn');
+
+		// Email validation
+		emailInput.addEventListener('blur', () => {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			const field = emailInput.closest('.form-field');
+			if (emailRegex.test(emailInput.value)) {
+				field.classList.add('valid');
+			} else {
+				field.classList.remove('valid');
+			}
+		});
+
+		// Character count
+		messageInput.addEventListener('input', () => {
+			const count = messageInput.value.length;
+			charCount.textContent = count;
+
+			if (count >= 250) {
+				charCount.style.color = 'var(--accent)';
+			} else {
+				charCount.style.color = 'var(--muted)';
+			}
+		});
+
+		// Form submission
+		form.addEventListener('submit', (e) => {
+			submitBtn.classList.add('loading');
+			submitBtn.disabled = true;
+		});
+
+		// Floating labels animation
+		const inputs = document.querySelectorAll('.form-input');
+		inputs.forEach(input => {
+			input.addEventListener('focus', () => {
+				input.closest('.form-field').classList.add('focused');
+			});
+
+			input.addEventListener('blur', () => {
+				if (!input.value) {
+					input.closest('.form-field').classList.remove('focused');
+				}
+			});
+
+			// Check if pre-filled
+			if (input.value) {
+				input.closest('.form-field').classList.add('focused');
+			}
+		});
+
+		// Hours calendar - highlight current day
+		const currentDayEl = document.querySelector('[data-current="true"]');
+		if (currentDayEl) {
+			currentDayEl.classList.add('current-day');
+		}
+	</script>
 }
