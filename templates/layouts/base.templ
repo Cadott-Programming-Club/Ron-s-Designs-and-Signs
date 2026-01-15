@@ -88,36 +88,37 @@ templ Base(m meta.PageMeta) {
 
 templ mobileMenuScript() {
 	<script>
-		const toggle = document.getElementById('menuToggle');
-		const menu = document.getElementById('navMenu');
-		const overlay = document.getElementById('navOverlay');
-		const closeBtn = document.getElementById('navClose');
+		document.addEventListener('DOMContentLoaded', function() {
+			const toggle = document.getElementById('menuToggle');
+			const menu = document.getElementById('navMenu');
+			const overlay = document.getElementById('navOverlay');
+			const closeBtn = document.getElementById('navClose');
 
-		function openMenu() {
-			menu.classList.add('active');
-			toggle.classList.add('active');
-			document.body.style.overflow = 'hidden';
-		}
+			if (!toggle || !menu || !overlay || !closeBtn) return;
 
-		function closeMenu() {
-			menu.classList.remove('active');
-			toggle.classList.remove('active');
-			document.body.style.overflow = '';
-		}
-
-		toggle.addEventListener('click', openMenu);
-		closeBtn.addEventListener('click', closeMenu);
-		overlay.addEventListener('click', closeMenu);
-
-		menu.querySelectorAll('.nav-link').forEach(link => {
-			link.addEventListener('click', closeMenu);
-		});
-
-		// Close on ESC key
-		document.addEventListener('keydown', (e) => {
-			if (e.key === 'Escape' && menu.classList.contains('active')) {
-				closeMenu();
+			function openMenu() {
+				menu.classList.add('active');
+				toggle.classList.add('active');
+				document.body.style.overflow = 'hidden';
 			}
-		});
+
+			function closeMenu() {
+				menu.classList.remove('active');
+				toggle.classList.remove('active');
+				document.body.style.overflow = '';
+			}
+
+			toggle.addEventListener('click', openMenu);
+			closeBtn.addEventListener('click', closeMenu);
+			overlay.addEventListener('click', closeMenu);
+				link.addEventListener('click', closeMenu);
+			});
+
+			// Close on ESC key
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape' && menu.classList.contains('active')) {
+					closeMenu();
+				}
+			});
 	</script>
 }

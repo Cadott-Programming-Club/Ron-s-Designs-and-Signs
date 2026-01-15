@@ -10,7 +10,7 @@ dev:
 		mv tmp/air-combined.log tmp/air-combined-$$(date +%Y%m%d-%H%M%S).log; \
 	fi
 	@ls -t tmp/air-combined-*.log 2>/dev/null | tail -n +6 | xargs rm -f 2>/dev/null || true
-	@air 2>&1 | tee tmp/air-combined.log
+	@set -a && source .envrc && set +a && air 2>&1 | tee tmp/air-combined.log
 
 build: generate css
 	go build -o $(BINARY_NAME) ./cmd/server
