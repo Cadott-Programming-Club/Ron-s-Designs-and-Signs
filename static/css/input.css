@@ -698,7 +698,7 @@
     box-shadow: 0 8px 32px rgba(255, 123, 89, 0.4),
                 0 0 0 0 rgba(255, 159, 28, 0.5);
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    animation: pulse-glow 2s infinite;
+    animation: pulse-glow 3s infinite;
     min-height: 44px;
     touch-action: manipulation;
   }

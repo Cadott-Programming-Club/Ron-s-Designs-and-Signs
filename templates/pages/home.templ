@@ -158,12 +158,11 @@ templ homeScripts() {
 			ctaText.textContent = ctaTitles[Math.floor(Math.random() * ctaTitles.length)];
 
 			// Rotate text every 3 seconds
+			
 			setInterval(() => {
 				ctaText.style.opacity = '0';
-				setTimeout(() => {
-					ctaText.textContent = ctaTitles[Math.floor(Math.random() * ctaTitles.length)];
-					ctaText.style.opacity = '1';
-				}, 300);
+				ctaText.textContent = ctaTitles[Math.floor(Math.random() * ctaTitles.length)];
+				ctaText.style.opacity = '1';
 			}, 3000);
 		}
 
