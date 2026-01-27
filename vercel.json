@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm install && make build",
+  "buildCommand": "npm install && go generate ./... && npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --minify && go build -o ronsdesigns ./cmd/server",
   "outputDirectory": ".",
   "framework": null,
-  "installCommand": "apt-get update && apt-get install -y make && npm install"
+  "installCommand": "npm install"
 }
