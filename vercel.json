@@ -3,5 +3,5 @@
   "buildCommand": "npm install && /usr/local/go/bin/go generate ./... && npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --minify && /usr/local/go/bin/go build -o ronsdesigns ./cmd/server",
   "outputDirectory": ".",
   "framework": null,
-  "installCommand": "curl -fsSL https://go.dev/dl/go1.24.12.linux-amd64.tar.gz | tar -xzf - -C /usr/local && npm install"
+  "installCommand": "curl -fsSL https://go.dev/dl/go1.24.12.linux-amd64.tar.gz | tar -xzf - -C /usr/local && /usr/local/go/bin/go install github.com/a-h/templ/cmd/templ@latest && npm install"
 }
