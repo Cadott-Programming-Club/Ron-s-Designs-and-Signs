@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm install && make build",
+  "outputDirectory": ".",
+  "framework": null,
+  "installCommand": "curl -fsSL https://go.dev/dl/go1.24.linux-amd64.tar.gz | tar -xzf - -C / && npm install"
+}

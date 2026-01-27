@@ -31,3 +31,4 @@ Thumbs.db
 
 # Tailwind output (generated)
 static/css/output.css
+.vercel
