@@ -3,5 +3,5 @@
   "buildCommand": "npm install && make build",
   "outputDirectory": ".",
   "framework": null,
-  "installCommand": "npm install"
+  "installCommand": "apt-get update && apt-get install -y make && npm install"
 }
