@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "export PATH=$PATH:/usr/local/go/bin && npm install && go generate ./... && npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --minify && go build -o ronsdesigns ./cmd/server",
+  "buildCommand": "npm install && /usr/local/go/bin/go generate ./... && npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --minify && /usr/local/go/bin/go build -o ronsdesigns ./cmd/server",
   "outputDirectory": ".",
   "framework": null,
   "installCommand": "curl -fsSL https://go.dev/dl/go1.24.12.linux-amd64.tar.gz | tar -xzf - -C /usr/local && npm install"
