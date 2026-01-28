@@ -1,7 +1,13 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin && npm install && go install github.com/a-h/templ/cmd/templ@latest && templ generate -path templates && npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --minify",
-  "installCommand": "curl -fsSL https://go.dev/dl/go1.23.7.linux-amd64.tar.gz | tar -xzf - -C /usr/local && npm install",
-  "outputDirectory": ".",
-  "framework": null
+  "version": 2,
+  "buildCommand": "curl -fsSL https://go.dev/dl/go1.23.7.linux-amd64.tar.gz | tar -xzf - -C /usr/local && export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin && npm install && go install github.com/a-h/templ/cmd/templ@latest && templ generate -path templates && npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --minify",
+  "builds": [
+    { "src": "api/index.go", "use": "@vercel/go" },
+    { "src": "static/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/images/(.*)", "dest": "/images/$1" },
+    { "src": "/(.*)", "dest": "/api/index.go" }
+  ]
 }
