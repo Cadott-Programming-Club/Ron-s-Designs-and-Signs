@@ -244,6 +244,26 @@ make css-watch
 
 ## Production Deployment
 
+### Vercel (Serverless)
+
+For deploying to Vercel with serverless functions:
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions on:
+- Manual CLI deployment
+- Automated GitHub Actions deployment
+- Database setup (Turso/Postgres)
+- Environment configuration
+- Troubleshooting
+
+Quick start:
+```bash
+npm install -g vercel
+vercel login
+vercel
+```
+
+### Traditional Server (Self-Hosted)
+
 ### 1. Build Production Binary
 
 ```bash

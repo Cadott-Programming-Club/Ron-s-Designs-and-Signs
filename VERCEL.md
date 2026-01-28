@@ -45,6 +45,25 @@ Configure these in the Vercel Dashboard (Settings → Environment Variables):
 
 ## Deployment
 
+### First-time Setup
+
+1. Install dependencies and build locally to ensure everything works:
+```bash
+# Generate Templ templates
+go run github.com/a-h/templ/cmd/templ@latest generate
+
+# Build Tailwind CSS
+npm run build:css
+
+# Test the build
+go build -o /tmp/test ./api/index.go
+```
+
+2. Link to Vercel:
+```bash
+vercel link
+```
+
 ### Preview Deployment
 ```bash
 vercel
@@ -82,6 +101,25 @@ vercel logs
    - Static files (`/static/*`, `/images/*`) served directly from `public/`
    - All other requests routed to the Go handler
 3. **sync.Once**: Ensures the app initializes only once per container (fast warm starts)
+
+## Build Configuration
+
+Vercel automatically detects the Go version from `go.mod` (currently 1.24). 
+
+**Important Notes:**
+- Templ templates are generated and committed to the repository (included in `*_templ.go` files)
+- Tailwind CSS output should be pre-built and committed, or built using a Vercel build command
+- The `@vercel/go` builder compiles the Go code during deployment
+
+### Optional: Build Command for Tailwind
+
+If you want to build Tailwind CSS during deployment, add this to `vercel.json`:
+
+```json
+{
+  "buildCommand": "npm install && npm run build:css"
+}
+```
 
 ## Local Development
 

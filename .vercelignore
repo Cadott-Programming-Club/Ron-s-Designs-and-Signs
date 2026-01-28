@@ -1,0 +1,37 @@
+# Development files
+.envrc
+.envrc.example
+.env
+tmp/
+*.log
+
+# Build artifacts
+ronsdesigns
+*.exe
+
+# SQLite database files (use cloud database on Vercel)
+data/*.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Development tools
+.air.toml
+Makefile
+CLAUDE.md
+
+# Node modules (if needed locally for Tailwind)
+node_modules/
+
+# Generated files (regenerated during build)
+static/css/output.css
