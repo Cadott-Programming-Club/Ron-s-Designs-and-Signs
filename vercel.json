@@ -6,7 +6,7 @@
   "installCommand": "npm install",
   "functions": {
     "api/*.go": {
-      "runtime": "go"
+      "runtime": "go@1"
     }
   },
   "routes": [
