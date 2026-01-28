@@ -4,11 +4,6 @@
   "outputDirectory": "static",
   "framework": null,
   "installCommand": "npm install",
-  "functions": {
-    "api/*.go": {
-      "runtime": "go@1.24"
-    }
-  },
   "routes": [
     {
       "src": "/static/(.*)",
