@@ -100,6 +100,7 @@ vercel logs
 2. **vercel.json**: Routes configuration
    - Static files (`/static/*`, `/images/*`) served directly from `public/`
    - All other requests routed to the Go handler
+   - **Important:** Route order matters! Static routes must be defined before the catch-all `/(.*)` route
 3. **sync.Once**: Ensures the app initializes only once per container (fast warm starts)
 
 ## Build Configuration

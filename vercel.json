@@ -3,11 +3,7 @@
     { "src": "api/index.go", "use": "@vercel/go" }
   ],
   "routes": [
-    {
-      "comment": "Static routes must come before catch-all route",
-      "src": "/static/(.*)",
-      "dest": "/public/static/$1"
-    },
+    { "src": "/static/(.*)", "dest": "/public/static/$1" },
     { "src": "/images/(.*)", "dest": "/public/images/$1" },
     { "src": "/(.*)", "dest": "/api/index.go" }
   ]
