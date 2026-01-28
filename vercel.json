@@ -1,11 +1,13 @@
 {
-  "version": 2,
   "builds": [
-    { "src": "api/index.go", "use": "@vercel/go" },
-    { "src": "public/**", "use": "@vercel/static" }
+    { "src": "api/index.go", "use": "@vercel/go" }
   ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "/public/static/$1" },
+    {
+      "comment": "Static routes must come before catch-all route",
+      "src": "/static/(.*)",
+      "dest": "/public/static/$1"
+    },
     { "src": "/images/(.*)", "dest": "/public/images/$1" },
     { "src": "/(.*)", "dest": "/api/index.go" }
   ]
