@@ -1,9 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm install && npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --minify && go generate ./...",
+  "buildCommand": "export PATH=$PATH:/usr/local/go/bin && npm install && npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --minify && go generate ./...",
   "outputDirectory": "static",
   "framework": null,
-  "installCommand": "npm install",
+  "installCommand": "curl -fsSL https://go.dev/dl/go1.24.12.linux-amd64.tar.gz | tar -xzf - -C /usr/local && /usr/local/go/bin/go install github.com/a-h/templ/cmd/templ@latest && npm install",
   "routes": [
     {
       "src": "/static/(.*)",
