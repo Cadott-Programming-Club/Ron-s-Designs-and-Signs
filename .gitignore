@@ -34,3 +34,4 @@ static/css/output.css
 
 # Vercel
 .vercel
+.env*.local
