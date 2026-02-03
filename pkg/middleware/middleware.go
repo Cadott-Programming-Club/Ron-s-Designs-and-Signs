@@ -5,8 +5,8 @@ import (
 	"log/slog"
 	"time"
 
-	"ronsdesigns/internal/config"
-	"ronsdesigns/internal/ctxkeys"
+	"ronsdesigns/pkg/config"
+	"ronsdesigns/pkg/ctxkeys"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"

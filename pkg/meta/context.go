@@ -3,8 +3,8 @@ package meta
 import (
 	"context"
 
-	"ronsdesigns/internal/config"
-	"ronsdesigns/internal/ctxkeys"
+	"ronsdesigns/pkg/config"
+	"ronsdesigns/pkg/ctxkeys"
 )
 
 func SiteFromCtx(ctx context.Context) config.SiteConfig {

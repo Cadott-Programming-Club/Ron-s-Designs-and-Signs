@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"ronsdesigns/internal/config"
-	"ronsdesigns/internal/database"
-	"ronsdesigns/internal/email"
+	"ronsdesigns/pkg/config"
+	"ronsdesigns/pkg/database"
+	"ronsdesigns/pkg/email"
 
 	"github.com/labstack/echo/v4"
 )

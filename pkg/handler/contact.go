@@ -3,7 +3,7 @@ package handler
 import (
 	"log/slog"
 
-	"ronsdesigns/internal/email"
+	"ronsdesigns/pkg/email"
 	"ronsdesigns/templates/pages"
 
 	"github.com/labstack/echo/v4"

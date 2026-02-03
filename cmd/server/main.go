@@ -8,11 +8,11 @@ import (
 	"syscall"
 	"time"
 
-	"ronsdesigns/internal/config"
-	"ronsdesigns/internal/database"
-	"ronsdesigns/internal/email"
-	"ronsdesigns/internal/handler"
-	"ronsdesigns/internal/middleware"
+	"ronsdesigns/pkg/config"
+	"ronsdesigns/pkg/database"
+	"ronsdesigns/pkg/email"
+	"ronsdesigns/pkg/handler"
+	"ronsdesigns/pkg/middleware"
 
 	"github.com/labstack/echo/v4"
 )
