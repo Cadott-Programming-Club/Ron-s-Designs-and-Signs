@@ -22,7 +22,7 @@ type Config struct {
 
 func Load() *Config {
 	cfg := &Config{
-		DatabaseURL:  os.Getenv("DATABASE_URL"),
+		DatabaseURL:  getEnvOrDefault("DATABASE_URL", ":memory:"),
 		Port:         getEnvOrDefault("PORT", "3000"),
 		Env:          getEnvOrDefault("ENV", "development"),
 		BrevoAPIKey:  os.Getenv("BREVO_API_KEY"),
@@ -34,9 +34,8 @@ func Load() *Config {
 		},
 	}
 
-	if cfg.DatabaseURL == "" {
-		slog.Error("DATABASE_URL environment variable is required")
-		os.Exit(1)
+	if cfg.DatabaseURL == ":memory:" {
+		slog.Warn("DATABASE_URL not set, using in-memory database (data will not persist)")
 	}
 
 	return cfg
