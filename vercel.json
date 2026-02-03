@@ -1,14 +1,10 @@
 {
-  "version": 2,
-  "installCommand": "curl -fsSL https://go.dev/dl/go1.23.7.linux-amd64.tar.gz | tar -xzf - -C /usr/local && npm install",
-  "buildCommand": "/usr/local/go/bin/go install github.com/a-h/templ/cmd/templ@latest && $HOME/go/bin/templ generate -path templates && npx @tailwindcss/cli -i static/css/input.css -o static/css/output.css --minify",
   "builds": [
-    { "src": "api/index.go", "use": "@vercel/go" },
-    { "src": "static/**", "use": "@vercel/static" }
+    { "src": "api/index.go", "use": "@vercel/go" }
   ],
   "routes": [
-    { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/images/(.*)", "dest": "/images/$1" },
+    { "src": "/static/(.*)", "dest": "/public/static/$1" },
+    { "src": "/images/(.*)", "dest": "/public/images/$1" },
     { "src": "/(.*)", "dest": "/api/index.go" }
   ]
 }
