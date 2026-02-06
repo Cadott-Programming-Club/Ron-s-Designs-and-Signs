@@ -1,10 +1,10 @@
 {
   "builds": [
-    { "src": "api/index.go", "use": "@vercel/go" }
+    { "src": "cmd/server/main.go", "use": "@vercel/go" }
   ],
   "routes": [
     { "src": "/static/(.*)", "dest": "/public/static/$1" },
     { "src": "/images/(.*)", "dest": "/public/images/$1" },
-    { "src": "/(.*)", "dest": "/api/index.go" }
+    { "src": "/(.*)", "dest": "/cmd/server/main.go" }
   ]
 }
