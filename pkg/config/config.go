@@ -4,6 +4,12 @@ import (
 	"log/slog"
 	"os"
 )
+package config
+
+import (
+	"log/slog"
+	"os"
+)
 
 type SiteConfig struct {
 	Name           string
