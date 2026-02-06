@@ -1,4 +1,4 @@
-module ronsdesigns
+module github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs
 
 go 1.24
 

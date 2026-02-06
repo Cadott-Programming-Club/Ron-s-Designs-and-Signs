@@ -3,8 +3,8 @@ package handler
 import (
 	"log/slog"
 
-	"ronsdesigns/pkg/email"
-	"ronsdesigns/templates/pages"
+	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/email"
+	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/templates/pages"
 
 	"github.com/labstack/echo/v4"
 )
