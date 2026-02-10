@@ -3,7 +3,7 @@ package handler
 import (
 	"net/http"
 
-	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/templates/pages"
+	"ronsdesigns/templates/pages"
 
 	"github.com/labstack/echo/v4"
 )

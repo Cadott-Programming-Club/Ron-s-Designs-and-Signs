@@ -1,8 +1,11 @@
-module github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/api
+module ronsdesigns/api
 
 go 1.24.0
 
-require github.com/labstack/echo/v4 v4.13.3
+require (
+	github.com/labstack/echo/v4 v4.13.3
+	ronsdesigns v0.0.0
+)
 
 require (
 	github.com/a-h/templ v0.3.977 // indirect
@@ -32,4 +35,4 @@ require (
 	modernc.org/sqlite v1.44.3 // indirect
 )
 
-replace github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs => ../
+replace ronsdesigns => ../

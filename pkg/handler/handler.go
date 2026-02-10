@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/config"
-	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/database"
-	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/email"
+	"ronsdesigns/pkg/config"
+	"ronsdesigns/pkg/database"
+	"ronsdesigns/pkg/email"
 
 	"github.com/labstack/echo/v4"
 )

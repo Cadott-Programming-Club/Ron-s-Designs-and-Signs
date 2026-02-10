@@ -8,11 +8,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/config"
-	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/database"
-	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/email"
-	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/handler"
-	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/middleware"
+	"ronsdesigns/pkg/config"
+	"ronsdesigns/pkg/database"
+	"ronsdesigns/pkg/email"
+	"ronsdesigns/pkg/handler"
+	"ronsdesigns/pkg/middleware"
 
 	"github.com/labstack/echo/v4"
 )
