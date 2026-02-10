@@ -2,10 +2,7 @@ module github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/api
 
 go 1.24.0
 
-require (
-	github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs v0.0.0
-	github.com/labstack/echo/v4 v4.13.3
-)
+require github.com/labstack/echo/v4 v4.13.3
 
 require (
 	github.com/a-h/templ v0.3.977 // indirect
@@ -35,7 +32,4 @@ require (
 	modernc.org/sqlite v1.44.3 // indirect
 )
 
-// Replace the main module with the parent directory so this function
-// module can import local packages from the repository during per-function
-// builds (Vercel runs `go` inside the `api/` folder).
 replace github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs => ../
