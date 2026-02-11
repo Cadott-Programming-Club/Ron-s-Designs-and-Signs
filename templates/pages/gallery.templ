@@ -107,30 +107,49 @@ templ galleryScripts() {
 		const filterBtns = document.querySelectorAll('.filter-btn');
 		const galleryItems = document.querySelectorAll('.gallery-item');
 
+		function applyFilter(filter) {
+			filterBtns.forEach(b => b.classList.remove('active'));
+			const matchBtn = Array.from(filterBtns).find(b => b.dataset.filter === filter);
+			if (matchBtn) matchBtn.classList.add('active');
+
+			galleryItems.forEach(item => {
+				if (filter === 'all' || item.dataset.category === filter) {
+					item.style.display = 'block';
+					setTimeout(() => {
+						item.style.opacity = '1';
+						item.style.transform = 'scale(1)';
+					}, 10);
+				} else {
+					item.style.opacity = '0';
+					item.style.transform = 'scale(0.8)';
+					setTimeout(() => {
+						item.style.display = 'none';
+					}, 300);
+				}
+			});
+		}
+
 		filterBtns.forEach(btn => {
 			btn.addEventListener('click', () => {
 				const filter = btn.dataset.filter;
 
-				filterBtns.forEach(b => b.classList.remove('active'));
-				btn.classList.add('active');
-
-				galleryItems.forEach(item => {
-					if (filter === 'all' || item.dataset.category === filter) {
-						item.style.display = 'block';
-						setTimeout(() => {
-							item.style.opacity = '1';
-							item.style.transform = 'scale(1)';
-						}, 10);
-					} else {
-						item.style.opacity = '0';
-						item.style.transform = 'scale(0.8)';
-						setTimeout(() => {
-							item.style.display = 'none';
-						}, 300);
-					}
-				});
+				applyFilter(filter);
+				// Update URL without reload
+				const url = new URL(window.location);
+				if (filter === 'all') {
+					url.searchParams.delete('filter');
+				} else {
+					url.searchParams.set('filter', filter);
+				}
+				history.replaceState(null, '', url);
 			});
 		});
+
+		// Apply filter from URL on page load
+		const urlFilter = new URLSearchParams(window.location.search).get('filter');
+		if (urlFilter) {
+			applyFilter(urlFilter);
+		}
 
 		// Lightbox functionality
 		const lightbox = document.getElementById('lightbox');
