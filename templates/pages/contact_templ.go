@@ -5,15 +5,14 @@ package pages
 
 //lint:file-ignore SA4006 This context is only used if a nested component is present.
 
+import "github.com/a-h/templ"
+import templruntime "github.com/a-h/templ/runtime"
+
 import (
 	"fmt"
-	"time"
-
 	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/meta"
 	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/templates/layouts"
-
-	"github.com/a-h/templ"
-	templruntime "github.com/a-h/templ/runtime"
+	"time"
 )
 
 func Contact(status, message string) templ.Component {

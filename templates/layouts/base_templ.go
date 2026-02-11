@@ -5,12 +5,10 @@ package layouts
 
 //lint:file-ignore SA4006 This context is only used if a nested component is present.
 
-import (
-	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/meta"
+import "github.com/a-h/templ"
+import templruntime "github.com/a-h/templ/runtime"
 
-	"github.com/a-h/templ"
-	templruntime "github.com/a-h/templ/runtime"
-)
+import "github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/meta"
 
 func Base(m meta.PageMeta) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
@@ -41,7 +39,7 @@ func Base(m meta.PageMeta) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<link rel=\"preload\" href=\"/static/fonts/Inter-Variable.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"><link rel=\"stylesheet\" href=\"/static/css/output.css\"><link rel=\"icon\" type=\"image/png\" href=\"/images/tranparant half.png\"></head><body class=\"min-h-screen bg-gradient-to-br from-primary to-primary-dark text-text\"><header class=\"header\"><a href=\"/\" aria-label=\"Go to homepage\"><img src=\"/images/tranparant half.png\" alt=\"Ron's Designs and Signs Logo\" class=\"header-logo\"></a><nav id=\"navMenu\" class=\"nav-menu\"><div class=\"nav-overlay\" id=\"navOverlay\"></div><div class=\"nav-content\"><button class=\"nav-close\" id=\"navClose\" aria-label=\"Close menu\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"></line> <line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"></line></svg></button> <a href=\"/\" class=\"nav-link\">Home</a> <a href=\"/services\" class=\"nav-link\">Services</a> <a href=\"/gallery\" class=\"nav-link\">Gallery</a> <a href=\"/contact\" class=\"nav-link\">Contact</a></div></nav><button class=\"menu-toggle\" id=\"menuToggle\" aria-label=\"Open menu\"><span></span><span></span><span></span></button></header>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<link rel=\"preload\" href=\"/static/fonts/Inter-Variable.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"anonymous\"><link rel=\"stylesheet\" href=\"/static/css/output.css\"><link rel=\"icon\" type=\"image/png\" href=\"/images/logo-transparent.png\"></head><body class=\"min-h-screen bg-gradient-to-br from-primary to-primary-dark text-text\"><header class=\"header\"><a href=\"/\" aria-label=\"Go to homepage\"><img src=\"/images/logo-transparent.png\" alt=\"Ron's Designs and Signs Logo\" class=\"header-logo\"></a><nav id=\"navMenu\" class=\"nav-menu\"><div class=\"nav-overlay\" id=\"navOverlay\"></div><div class=\"nav-content\"><button class=\"nav-close\" id=\"navClose\" aria-label=\"Close menu\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"></line> <line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"></line></svg></button> <a href=\"/\" class=\"nav-link\">Home</a> <a href=\"/services\" class=\"nav-link\">Services</a> <a href=\"/gallery\" class=\"nav-link\">Gallery</a> <a href=\"/contact\" class=\"nav-link\">Contact</a></div></nav><button class=\"menu-toggle\" id=\"menuToggle\" aria-label=\"Open menu\"><span></span><span></span><span></span></button></header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
