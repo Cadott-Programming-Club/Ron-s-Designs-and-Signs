@@ -2026,10 +2026,23 @@
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
+    position: relative;
+    z-index: 2001;
   }
 
   .header {
     padding: 12px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  body {
+    padding-top: 73px; /* compensate for fixed header */
   }
 
   /* Slide-in Navigation from Right */
@@ -2040,9 +2053,11 @@
     bottom: 0;
     width: 100%;
     max-width: 100%;
-    z-index: 2000;
+    z-index: 2002;
     pointer-events: none;
     visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
   .nav-menu.active {
