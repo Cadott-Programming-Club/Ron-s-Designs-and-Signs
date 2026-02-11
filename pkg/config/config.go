@@ -6,9 +6,10 @@ import (
 )
 
 type SiteConfig struct {
-	Name           string
-	URL            string
-	DefaultOGImage string
+	Name                 string
+	URL                  string
+	DefaultOGImage       string
+	BrevoConversationsID string
 }
 
 type Config struct {
@@ -28,9 +29,10 @@ func Load() *Config {
 		BrevoAPIKey:  os.Getenv("BREVO_API_KEY"),
 		ContactEmail: getEnvOrDefault("CONTACT_EMAIL", "ronsdesigns@hotmail.com"),
 		Site: SiteConfig{
-			Name:           getEnvOrDefault("SITE_NAME", "Ron's Designs and Signs"),
-			URL:            getEnvOrDefault("SITE_URL", "http://localhost:3000"),
-			DefaultOGImage: getEnvOrDefault("DEFAULT_OG_IMAGE", "/static/images/og-default.png"),
+			Name:                 getEnvOrDefault("SITE_NAME", "Ron's Designs and Signs"),
+			URL:                  getEnvOrDefault("SITE_URL", "http://localhost:3000"),
+			DefaultOGImage:       getEnvOrDefault("DEFAULT_OG_IMAGE", "/static/images/og-default.png"),
+			BrevoConversationsID: os.Getenv("BREVO_CONVERSATIONS_ID"),
 		},
 	}
 

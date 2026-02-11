@@ -30,7 +30,7 @@ func Setup(e *echo.Echo, cfg *config.Config) {
 		ContentTypeNosniff:    "nosniff",
 		XFrameOptions:         "SAMEORIGIN",
 		HSTSMaxAge:            31536000,
-		ContentSecurityPolicy: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-src https://www.google.com;",
+		ContentSecurityPolicy: "default-src 'self'; script-src 'self' 'unsafe-inline' https://conversations-widget.brevo.com; style-src 'self' 'unsafe-inline' https://conversations-widget.brevo.com; frame-src https://www.google.com https://conversations-widget.brevo.com; connect-src 'self' https://conversations-widget.brevo.com wss://conversations-widget.brevo.com;",
 	}))
 }
 

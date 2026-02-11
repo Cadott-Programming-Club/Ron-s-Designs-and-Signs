@@ -68,7 +68,7 @@ func Base(m meta.PageMeta) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></div></footer></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</p></div></footer><!-- Brevo Conversations --><script>\n\t\t\t\t(function(d, w, c) {\n\t\t\t\t\tw.BrevoConversationsID = '6967a474020e296c6602e435';\n\t\t\t\t\tw[c] = w[c] || function() {\n\t\t\t\t\t\t(w[c].q = w[c].q || []).push(arguments);\n\t\t\t\t\t};\n\t\t\t\t\tvar s = d.createElement('script');\n\t\t\t\t\ts.async = true;\n\t\t\t\t\ts.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';\n\t\t\t\t\tif (d.head) d.head.appendChild(s);\n\t\t\t\t})(document, window, 'BrevoConversations');\n\t\t\t</script></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

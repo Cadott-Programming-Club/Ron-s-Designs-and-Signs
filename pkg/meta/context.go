@@ -21,3 +21,7 @@ func SiteNameFromCtx(ctx context.Context) string {
 func SiteURLFromCtx(ctx context.Context) string {
 	return SiteFromCtx(ctx).URL
 }
+
+func BrevoConversationsIDFromCtx(ctx context.Context) string {
+	return SiteFromCtx(ctx).BrevoConversationsID
+}
