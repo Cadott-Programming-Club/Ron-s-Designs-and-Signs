@@ -3,8 +3,8 @@ package meta
 import (
 	"context"
 
-	"ronsdesigns/pkg/config"
-	"ronsdesigns/pkg/ctxkeys"
+	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/config"
+	"github.com/BubblePlayzTHEREAL/Ron-s-Designs-and-Signs/pkg/ctxkeys"
 )
 
 func SiteFromCtx(ctx context.Context) config.SiteConfig {
