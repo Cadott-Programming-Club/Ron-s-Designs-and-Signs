@@ -23,3 +23,7 @@ func (h *Handler) Services(c echo.Context) error {
 func (h *Handler) Gallery(c echo.Context) error {
 	return pages.Gallery().Render(c.Request().Context(), c.Response().Writer)
 }
+
+func (h *Handler) LLMsTxt(c echo.Context) error {
+	return c.File("public/llms.txt")
+}
