@@ -1,7 +1,4 @@
 {
-  "github": {
-    "enabled": false
-  },
   "builds": [
     { "src": "api/index.go", "use": "@vercel/go" },
     { "src": "public/**", "use": "@vercel/static" }
