@@ -9,6 +9,8 @@ tmp/
 # Environment (never commit secrets)
 .envrc
 .env
+.env.local
+.env.local.backup
 
 # SQLite database files
 data/*.db
