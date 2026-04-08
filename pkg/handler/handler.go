@@ -27,6 +27,7 @@ func (h *Handler) RegisterRoutes(e *echo.Echo) {
 	e.Static("/images", "images")
 
 	e.GET("/health", h.Health)
+	e.GET("/llms.txt", h.LLMsTxt)
 	e.GET("/", h.Home)
 	e.GET("/services", h.Services)
 	e.GET("/gallery", h.Gallery)
